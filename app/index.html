@@ -35,10 +35,12 @@
 
   <!-- Add Strutta Game ID and Public Key -->
   <script>
-    STRUTTA_GAME_ID = 363;
-    STRUTTA_API_URI = 'http://localhost:4000/v2/games/' + STRUTTA_GAME_ID;
-    STRUTTA_PUBLIC_KEY = '767216c329d8cbd70fa1383c97de1439';
+    STRUTTA_GAME_ID = GAME_ID;
+    STRUTTA_PUBLIC_KEY = 'my_strutta_public_key';
+
+    STRUTTA_API_URI = 'https://strutta-api.herokuapp.com' + STRUTTA_GAME_ID;
   </script>
+
 </head>
 <body ng-app="myApp">
   <div ng-controller="MainCtrl" class="container">
