@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>Thanks for entering!</h1>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <p ng-hide="$storage.entry.doubleUp">Share this Sweepstakes on Facebook and get a second entry!</p>
+    <p ng-show="$storage.entry.doubleUp">Thanks for sharing! You've received a second entry!</p>
+
+    <!-- Facebook Share -->
+    <a ng-click='fbShare()' href>Share</a>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+
+  <!-- Facebook JS SDK -->
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '920322871321130',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <!-- Add Strutta Game ID and Public Key -->
+  <script>
+    STRUTTA_GAME_ID = 363;
+    STRUTTA_API_URI = 'http://localhost:4000/v2/games/' + STRUTTA_GAME_ID;
+    STRUTTA_PUBLIC_KEY = '767216c329d8cbd70fa1383c97de1439';
+  </script>
+</head>
+<body ng-app="myApp">
+  <div ng-controller="MainCtrl" class="container">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Strutta API Tutorial</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#/">Home</a></li>
+            <li><a href="#/sweeps">Enter Now!</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-hide="$storage.struttaParticipant" role="presentation"><a href="#/registration">Sign Up</a></li>
+            <li ng-hide="$storage.struttaParticipant" role="presentation"><a href="#/sign-in">Sign In</a></li>
+
+            <li ng-show="$storage.struttaParticipant" role="presentation">Hi {{ $storage.struttaParticipant.metadata.name }}</li>
+            <li ng-show="$storage.struttaParticipant" role="presentation"><a href ng-click='signOut()'>Sign Out</a></li>
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!--/.container-fluid -->
+    </nav>
+
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div ng-view></div>
+
+  </div> <!-- End container -->
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/ngstorage/ngStorage.js"></script>
+  <script src="app.js"></script>
+  <script src="registration/registration.js"></script>
+  <script src="home/home.js"></script>
+  <script src="sweeps/sweeps.js"></script>
+  <script src="thanks/thanks.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.tpl.min.js"></script>
+</body>
+</html>
