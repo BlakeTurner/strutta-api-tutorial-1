@@ -11,6 +11,6 @@
     <p ng-show="$storage.entry.doubleUp">Thanks for sharing! You've received a second entry!</p>
 
     <!-- Facebook Share -->
-    <a ng-click='fbShare()' href>Share</a>
+    <a ng-hide="$storage.entry.doubleUp" ng-click='fbShare()' href>Share</a>
   </div>
 </div>
